@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #2196F3 ; /* Blue background color */
+    }
+    .container {
+        background-color: black;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        color: white; /* White text color */
+    }
+    .container h2 {
+        margin-top: 0;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+   <center> <h2>Registration Form</h2>
+    <form id="registrationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+      <center>  <button type="submit">Register</button></center>
+    </form></center>
+    
+    <div id="displayData" style="margin-top: 20px;"></div>
+</div>
+
+<script>
+    const form = document.getElementById("registrationForm");
+    const displayData = document.getElementById("displayData");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const name = form.elements.name.value;
+        const email = form.elements.email.value;
+
+        const userData = `
+            <h3>Registered User:</h3>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+        `;
+
+        displayData.innerHTML = userData;
+        form.reset();
+    });
+</script>
+</body>
+</html>
